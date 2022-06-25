@@ -30,7 +30,7 @@ module.exports.agoraStatesDiscussions = [
     id:9,
     username:'soo Jung',
     title:'나는...',
-    content: '비전공자 라고요 ㅜㅜ',
+    content: '비전공자이지만 열심히 하겠습니다! ^^',
     createdAt: new Date().toLocaleString()
   },
   { 
