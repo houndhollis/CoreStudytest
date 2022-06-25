@@ -1,10 +1,16 @@
 // TODO: discussions 라우터를 완성합니다.\
-const { discussionsController } = require('../controller');
-const { findAll, findById, createOne, updateById, deleteById } = discussionsController;
-const express = require('express');
-const router = express.Router(); // 필수 
+const { discussionsController } = require("../controller");
+const { findAll, findById, createOne, updateById, deleteById } =
+  discussionsController;
+const express = require("express");
+const router = express.Router(); // 필수
 
 // 로컬호스트/ http://localhost:3001/discussions/
+router.get("/", findAll);
+router.get("/:id", findById);
+router.post("/", createOne);
+router.put("/:id", updateById);
+router.delete("/:id", deleteById);
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
 
