@@ -64,7 +64,7 @@ const discussionsController = {
         console.log(...undefined)   // Error 
         console.log([...undefined]) // Error
         console.log({...undefined}) // {} // Work
-        console.log({...undefined}) // {} // Work
+        console.log({...null}) // {} // Work
     */
 
     if (idx !== -1) { 
