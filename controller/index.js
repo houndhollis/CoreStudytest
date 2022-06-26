@@ -22,6 +22,13 @@ const discussionsController = {
   },
   createOne: (req, res) => {
     console.log(req.body) // undefined 가 나온다? 왜지?
+    // const newData = {
+    //   id:discussionsData+1,
+    //   username:req.body.username,
+    //   title:req.body.title,
+    //   content:req.body.content,
+    //   createAt:req.body.createAt
+    // }
       discussionsData.unshift(req.body) // 요청한 응답을 discussionsData 의 제일 앞으로 넘겨준다.
       res.status(200).json(discussionsData) 
       // 새로운 데이터가 들어간 discussionsData를 보내준다.
