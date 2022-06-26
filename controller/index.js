@@ -21,9 +21,11 @@ const discussionsController = {
     }
   },
   createOne: (req, res) => {
-    console.log(req.body)
+    console.log(req.body) // undefined 가 나온다? 왜지?
       discussionsData.unshift(req.body) // 요청한 응답을 discussionsData 의 제일 앞으로 넘겨준다.
-      res.status(200).json(discussionsData) // 새로운 데이터가 들어간 discussionsData를 보내준다.
+      res.status(200).json(discussionsData) 
+      // 새로운 데이터가 들어간 discussionsData를 보내준다.
+      // 값은 들어가는데 null 값이 나온다,, 왜인지 모르겠네,,
   },
 
   updateById: (req, res) => {
@@ -34,11 +36,11 @@ const discussionsController = {
  // ...req.body, ...newData 를 해주면 
  // discussionsData 가 변경되고 변경된 discussionsData 를 보내주면 될 꺼같다. 
 
-    const updateId = discussionsData.findIndex(el => el.id === Number(req.params.id))
+    const updateIndex = discussionsData.findIndex(el => el.id === Number(req.params.id))
     // 요청의 아이디와 discussionsData의 아이디와 일치하는 인덱스 번호를 할당
-    const updateItem = discussionsData.filter(el => el.id === Number(req.params.id))
-    // 요청의 아이디와 discussionsData의 아이디와 일치하는 데이터를 할당
-    discussionsData.splice(updateId,1,...req.body)
+    const newItem = {...discussionsData[updateIndex],...req.body}
+    // 
+    discussionsData.splice(updateIndex,1,newItem)
     // splice 로 원본배열을 변경시켜 줄 건데, 시작지점은 아이디가 일치하는 인덱스 부터 시작하고,
     // 요청으로 온 body를 스프레드 연산자를 사용해서 풀어주고, 그 다음 인자로
     // 아이디와 일치하는 데이터를 풀어서 써주면 스프레드 연산자에 의해 변경된 데이터는 
